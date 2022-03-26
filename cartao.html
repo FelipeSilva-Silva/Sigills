@@ -19,9 +19,9 @@
 
             <div class="d-flex flex-column flex-shrink-0 p-3 text-white vh-100"
                 style="width: 270px; background-color: #20C997;">
-                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <img class="bi me-2" width="40" height="32">
-                    <span class="fs-4">Sigills</span>
+                <a href="#"
+                    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-black text-decoration-none">
+                    <strong style="font-size:xx-large ;">Sigills</strong>
                 </a>
                 <hr>
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none" id="dropdownUser1"
@@ -32,43 +32,93 @@
                 </a>
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-white" aria-current="page">
+                    <li class="nav-item text-center">
+                        <div class="dropend">
+
+                            <button href="#" class=" btn btn-light mb-2" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <img src="assets/img/add_box_black_24dp 1.svg" alt="" width="25" height="25">
+                                Adicionar
+                            </button>
+
+                            <ul class="dropdown-menu mx-0 shadow" style="width: 220px;">
+                                <li>
+                                    <div>
+                                        <a class="dropdown-item d-flex gap-2 align-items-center" data-bs-toggle="modal"
+                                            href="#singup">
+                                            <img src="assets/img/move_up_black_24dp 1.svg" alt="" width="40"
+                                                height="40">
+                                            Transações
+                                        </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+                                        <img src="assets/img/trending_down_black_24dp 2.svg" alt="" width="40"
+                                            height="40">
+                                        Saídas
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+                                        <img src="assets/img/trending_up_black_24dp 1.svg" alt="" width="40"
+                                            height="40">
+                                        Entradas
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+                                        <img src="assets/img/credit_card.svg" alt="" width="40" height="40">
+                                        Cartão
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+                                        <img src="assets/img/insights_black_24dp 1.svg" alt="" width="40" height="40">
+                                        Metas
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="dashboard.html" class="nav-link text-white">
                             <img src="assets/img/dashboard_black_24dp 1.svg" alt="" class="bi me-2" width="25"
                                 height="25">
                             Dashboard
                         </a>
                     </li>
+
                     <li>
-                        <a href="#" class="nav-link text-white">
-                            <img src="assets/img/account_balance_black_24dp (1) 1.svg" alt="" class="bi me-2" width="25"
+                        <a href="contas.html" class="nav-link text-white">
+                            <img src="assets/img/account_balance_black_24dp.svg" alt="" class="bi me-2" width="25"
                                 height="25">
                             Contas
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link text-white">
+                        <a href="transacoes.html" class="nav-link text-white">
                             <img src="assets/img/attach_money_black_24dp 1.svg" alt="" class="bi me-2" width="25"
                                 height="25">
                             Transações
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link text-white">
+                        <a href="cartao.html" class="nav-link text-white">
                             <img src="assets/img/credit_card_black_24dp (1) 1.svg" alt="" class="bi me-2" width="25"
                                 height="25">
-                            Cartão de Credito
+                            Cartão de Crédito
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link text-white">
+                        <a href="metas.html" class="nav-link text-white">
                             <img src="assets/img/assignment_turned_in_black_24dp 1.svg" alt="" class="bi me-2"
                                 width="25" height="25">
                             Metas
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link text-white">
+                        <a href="relatorios.html" class="nav-link text-white">
                             <img src="assets/img/description_black_24dp 1.svg" alt="" class="bi me-2" width="25"
                                 height="25">
                             Relatórios
@@ -84,7 +134,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link text-white">
+                        <a href="login.html" class="nav-link text-white">
                             <img src="assets/img/logout_black_24dp (1) 1.svg" alt="" class="bi me-2" width="25"
                                 height="25">
                             Sair
@@ -92,7 +142,6 @@
                     </li>
                 </ul>
             </div>
-
         </div>
 
 
@@ -113,6 +162,7 @@
             </div>
 
             <div class="d-flex">
+                
                 <div class="p-5 w-50">
                     <div class="card">
                         <div class="card-body">
@@ -140,6 +190,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="p-5">
                     <div>
                         <div>
