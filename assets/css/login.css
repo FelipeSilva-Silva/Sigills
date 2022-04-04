@@ -9,25 +9,24 @@ body {
   margin: auto;
 }
 
-.content{
+.content {
   margin-top: 200px;
 }
 
 .bi {
-  vertical-align: -.125em;
+  vertical-align: -0.125em;
   fill: currentColor;
 }
 
-h1{
+h1 {
   font-weight: 900;
   font-size: 50px;
-  color: #20C997;
+  color: #20c997;
 }
 
-p{
+p {
   font-weight: bold;
-
 }
-p:hover{
+p:hover {
   cursor: pointer;
 }

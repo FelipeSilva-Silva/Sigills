@@ -3,5 +3,11 @@ body {
 }
 
 .nav-link:hover {
-    background-color: #525252;
+  background-color: #525252;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
 }
