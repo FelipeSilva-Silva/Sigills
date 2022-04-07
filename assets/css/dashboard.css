@@ -11,3 +11,47 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
   -webkit-appearance: none;
 }
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
+
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 100vh;
+}
+
+#sidebar.active {
+  min-width: 90px;
+  max-width: 90px;
+}
+
+#sidebar.active div a.header strong {
+  font-size: 1rem !important;
+  text-align: center;
+}
+
+#sidebar.active #dropdownUser1 > .profile {
+  display: none;
+}
+#sidebar.active div div {
+  flex-direction: column;
+}
+#sidebar.active .nav-link span {
+  display: none;
+}
+
+#sidebar.active .nav-item span {
+  display: none;
+}
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -200px;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+}
