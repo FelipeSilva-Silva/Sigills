@@ -105,21 +105,21 @@ function Login() {
     }
 
     return (
-        <div class="container">
-            <div class="content row ">
+        <div className="container">
+            <div className="content row ">
 
-                <div class="col">
+                <div className="col">
                     <h1>Sigills</h1>
                     <h3>Melhor gerenciador das suas finanças</h3>
                 </div>
 
-                <form class="col text-center">
+                <form className="col text-center">
                     <div id="camp" ></div>
-                    <div class="form-login">
-                        <div class="form-floating mb-3">
+                    <div className="form-login">
+                        <div className="form-floating mb-3">
                             <input
                                 type="email"
-                                class="form-control"
+                                className="form-control"
                                 id="emailE"
                                 placeholder="name@example.com"
                                 onChange={e => setEmail(e.target.value)}
@@ -127,10 +127,10 @@ function Login() {
                             />
                             <label for="email">E-mail</label>
                         </div>
-                        <div class="form-floating">
+                        <div className="form-floating">
                             <input
                                 type="password"
-                                class="form-control"
+                                className="form-control"
                                 id="passwordE"
                                 placeholder="Password"
                                 onChange={e => setPassword(e.target.value)}
@@ -139,10 +139,10 @@ function Login() {
                             <label for="floatingPassword">Senha</label>
                         </div>
 
-                        <button class=" w-100 mt-2 py-2 btn btn-outline-success" onClick={handleLogin}>Entrar</button>
+                        <button className=" w-100 mt-2 py-2 btn btn-outline-success" onClick={handleLogin}>Entrar</button>
 
-                        <button class="w-100 mt-2 py-2 mb-2 btn btn-outline-secondary rounded-2" type="submit">
-                            <img class="bi me-1"
+                        <button className="w-100 mt-2 py-2 mb-2 btn btn-outline-secondary rounded-2" type="submit">
+                            <img className="bi me-1"
                                 width="16"
                                 height="16"
                                 src={iconGmail} alt="Icone Gmail"
@@ -150,27 +150,27 @@ function Login() {
                             Entrar com o Google
                         </button>
 
-                        <p class="mt-1">esqueceu a senha?</p>
-                        <hr class="my-4" />
+                        <p className="mt-1">esqueceu a senha?</p>
+                        <hr className="my-4" />
 
-                        <button type="button" class="w-100 btn btn-primary" data-bs-toggle="modal" data-bs-target="#singup">
+                        <button type="button" className="w-100 btn btn-primary" data-bs-toggle="modal" data-bs-target="#singup">
                             Cadastrar-se
                         </button>
 
-                        <div class="modal fade" id="singup" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                        <div className="modal fade" id="singup" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                             aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="staticBackdropLabel">Novo Usuário</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            <div className="modal-dialog modal-dialog-centered">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title" id="staticBackdropLabel">Novo Usuário</h5>
+                                        <button type="button" className="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div id="campC" ></div>
-                                    <div class="modal-body">
-                                        <div class="form-floating mb-3">
+                                    <div className="modal-body">
+                                        <div className="form-floating mb-3">
                                             <input type="text"
-                                                class="form-control rounded-4"
+                                                className="form-control rounded-4"
                                                 id="nome"
                                                 placeholder="nome"
                                                 value={name}
@@ -179,9 +179,9 @@ function Login() {
                                             <label for="nome">Nome</label>
                                         </div>
 
-                                        <div class="form-floating mb-3">
+                                        <div className="form-floating mb-3">
                                             <input type="email"
-                                                class="form-control rounded-4"
+                                                className="form-control rounded-4"
                                                 id="email"
                                                 placeholder="name@example.com"
                                                 value={email}
@@ -190,9 +190,9 @@ function Login() {
                                             <label for="email">E-mail</label>
 
                                         </div>
-                                        <div class="form-floating mb-3">
+                                        <div className="form-floating mb-3">
                                             <input type="password"
-                                                class="form-control rounded-4"
+                                                className="form-control rounded-4"
                                                 id="password"
                                                 placeholder="Password"
                                                 value={password}
@@ -201,11 +201,11 @@ function Login() {
 
                                             <label for="password">Senha</label>
                                         </div>
-                                        <hr class="my-4" />
-                                        <h2 class="fs-5 fw-bold mb-3">Ou use essa forma</h2>
+                                        <hr className="my-4" />
+                                        <h2 className="fs-5 fw-bold mb-3">Ou use essa forma</h2>
 
-                                        <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-2" type="submit">
-                                            <img class="bi me-1"
+                                        <button className="w-100 py-2 mb-2 btn btn-outline-secondary rounded-2" type="submit">
+                                            <img className="bi me-1"
                                                 width="16"
                                                 height="16"
                                                 src={iconGmail} alt="Icone Gmail" />
@@ -213,9 +213,9 @@ function Login() {
                                         </button>
 
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                        <button type="submit" class="btn btn-primary" onClick={signInWithEmail}>Cadastrar</button>
+                                    <div className="modal-footer">
+                                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                        <button type="submit" className="btn btn-primary" onClick={signInWithEmail}>Cadastrar</button>
                                     </div>
                                 </div>
                             </div>

@@ -1,0 +1,11 @@
+.cardStyle{
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.sizeCard{
+    width: 50vh
+
+}
