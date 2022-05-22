@@ -1,11 +1,19 @@
 .cardStyle{
     display: flex;
-    flex-direction: column;
-
-
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .sizeCard{
     width: 50vh
 
 }
+
+.imgSize{
+    font-size: 40px ;
+    color: rgb(56, 245, 56);
+}
+
+strong{
+    font-size: 30px;
+}   
