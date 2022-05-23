@@ -16,7 +16,7 @@ const Cards = (props) => {
                 <Card.Title>{props.name}</Card.Title>
                 <div className="cardStyle">
                     <Card.Text >
-                        <strong> $0.000.000,00</strong>
+                        <strong style={{fontSize:'20px'}}> $0.000.000,00</strong>
                     </Card.Text>
                     {
                         props.name === 'Entradas' ?
