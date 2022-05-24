@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from '../../components/Navbar/Sidebar';
-
-
 import supabase from '../../services/Api'
 import AccountList from '../../components/Account/List';
 

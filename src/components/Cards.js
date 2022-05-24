@@ -100,8 +100,8 @@ const Cards = (props) => {
                         </div>
                         <br />
                         <div className="d-flex justify-content-between">
-                            <h5 classNameName="card-subtitle mb-2 text-muted">Fechamento da fatura</h5>
-                            <h5 classNameName="card-subtitle mb-2 text-muted">28/MAR</h5>
+                            <h5 className="card-subtitle mb-2 text-muted">Fechamento da fatura</h5>
+                            <h5 className="card-subtitle mb-2 text-muted">28/MAR</h5>
                         </div>
                         <div className="d-flex justify-content-between">
                             <h5 className="card-subtitle mb-2 text-muted">Data de vencimento</h5>

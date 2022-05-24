@@ -1,0 +1,19 @@
+.cardStyle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.sizeCard{
+    width: 50vh;
+    margin: 8px;
+}
+
+.imgSize{
+    font-size: 40px ;
+    color: rgb(56, 245, 56);
+}
+
+strong{
+    font-size: 30px;
+}   
