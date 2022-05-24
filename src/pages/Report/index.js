@@ -17,26 +17,32 @@ function Report() {
     useEffect(
         () => {
             async function loadTransitions() {
-                // if (enableEntries) {
-                    try {
-                        let { data: entradas, error } = await supabase
-                            .from('entradas')
-                            .select("*")
+                try {
+                    let { data: entradas, error } = await supabase
+                        .from('entradas')
+                        .select("*");
 
-                        if (error) {
-                            throw error;
-                        }
 
-                        if (entradas) {
-                            setTransitions(entradas);
-                        }
-                    } catch (error) {
-                        alert("Erro ao carregar movimentações");
-                        console.log(error);
+                    let { data: saidas, errorExits } = await supabase
+                        .from('saidas')
+                        .select("*");
+
+                    if (error || errorExits) {
+                        throw error;
                     }
-                // } else {
-                //     setTransitions([]);
-                // }
+
+                    if (entradas) {
+                        setTransitions(Array.prototype.concat(entradas, saidas.map(
+                            (saida) => {
+                                saida.valor *= -1;
+                                return saida;
+                            }
+                        )));
+                    }
+                } catch (error) {
+                    alert("Erro ao carregar movimentações");
+                    console.log(error);
+                }
             }
 
             loadTransitions();
