@@ -1,20 +1,49 @@
 import { useState } from "react";
-import { Button, Modal } from "react-bootstrap";
-
-import { AiFillCalculator } from "react-icons/ai";
+import { Button, Form, InputGroup, Modal } from "react-bootstrap";
 import { IoDocumentText } from "react-icons/io5";
-import { MdAccountBalance } from "react-icons/md";
-
-
-
+import supabase from "../../services/Api";
 
 const ModalAddCredit = () => {
 
 
     const [show, setShow] = useState(false);
+    const [description, setDescription] = useState('');
+    const [closingDate, setClosingDate] = useState('');
+    const [dueDate, setDueDate] = useState('');
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    async function handleAddItemToList(e) {
+        e.preventDefault();
+
+        if (description && closingDate && dueDate) {
+            setDescription("");
+            setClosingDate("");
+            setDueDate("");
+        }
+
+        const insert = {
+            usuario: 1,
+            apelido: description,
+            fechamento: closingDate,
+            vencimento: dueDate,
+        }
+
+        try {
+            const { error } = await supabase
+                .from('cartoes')
+                .insert([insert]);
+            if (error) {
+                throw error
+            }
+        } catch (error) {
+            alert(error.message)
+        }
+
+        handleClose();
+
+    }
 
     return (
         <>
@@ -33,45 +62,24 @@ const ModalAddCredit = () => {
                     <Modal.Title>Novo Cartão</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-
-                    <form>
-                        <div class=" input-group mb-3 border-0 border-bottom ">
-                            <div class="input-group-text border-0 bg-white"><IoDocumentText style={{ fontSize: '24px' }} /></div>
-                            <input type="text" class="form-control border-0" id="description" placeholder="Descrição" />
-                        </div>
-                        <div class="input-group mb-3 border-0 border-bottom ">
-                            <div class="input-group-text border-0 bg-white"><AiFillCalculator style={{ fontSize: '24px' }} /></div>
-                            <input class="form-control border-0" id="price" placeholder="R$ 0,00"></input>
-                        </div>
-                        <div class="mb-3 d-flex justify-content-between">
-                            <div class="input-group mb-3 border-0 border-bottom me-2">
-                                <div class="input-group-text border-0 bg-white"><MdAccountBalance style={{ fontSize: '24px' }} /></div>
-                                <input class="form-control me-1 border-0 " id="accountExit" placeholder="Conta de origem"></input>
-                            </div>
-                            <div class="input-group mb-3 border-0 border-bottom me-2">
-                                <div class="input-group-text border-0 bg-white"><MdAccountBalance style={{ fontSize: '24px' }} /></div>
-                                <input class="form-control me-1 border-0 " id="accountEntry" placeholder="Conta de destino"></input>
-                            </div>
-                        </div>
-                        <div class="mb-3 d-flex justify-content-between w-50">
-                            <div class="input-group date mb-3 border-0 border-bottom me-2">
-                                <input class="form-control border-0" id="date" type="date" placeholder="dd/mm/yyyy"></input>
-                            </div>
-                        </div>
-
-                        <div class="input-group mb-3 border-0 me-2">
-                        </div>
-
-
-                    </form>
-
-
+                    <Form>
+                        <Form.Group className="mb-3">
+                            <Form.Control type="text" placeholder="Descrição"
+                                value={description} onChange={e => setDescription(e.target.value)} />
+                        </Form.Group>
+                        <InputGroup className="mb-3">
+                            <Form.Control type="number" max="31" placeholder="Fechamento"
+                                value={closingDate} onChange={e => setClosingDate(e.target.value)} />
+                            <Form.Control type="number" max="31" placeholder="Vencimento"
+                                value={dueDate} onChange={e => setDueDate(e.target.value)} />
+                        </InputGroup>
+                    </Form>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button className='border-0' onClick={handleClose} >
                         Fechar
                     </Button>
-                    <Button className='border-0' style={{ background: '#20C997' }}>Salvar</Button>
+                    <Button className='border-0' style={{ background: '#20C997' }} onClick={handleAddItemToList}>Salvar</Button>
                 </Modal.Footer>
             </Modal>
         </>

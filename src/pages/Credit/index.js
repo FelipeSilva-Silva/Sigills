@@ -47,7 +47,10 @@ function Credit() {
                     </div>
                 </div>
 
-                <CreditList itemsList={itemsList} />
+                <CreditList
+                    itemsList={itemsList}
+                    setItemsList={setItemsList}
+                />
             </div>
         </div>
 

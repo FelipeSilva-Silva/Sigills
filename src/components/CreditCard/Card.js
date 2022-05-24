@@ -1,23 +1,39 @@
 import { } from "bootstrap";
-import { Card } from "react-bootstrap";
+import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
 import './style.css'
-import { MdCreditCard } from "react-icons/md";
+import supabase from "../../services/Api";
 
 const CreditCard = (props) => {
+
+    const removeItem = (item) => {
+        async function remove() {
+            try {
+                const { error } = await supabase
+                    .from('cartoes')
+                    .delete()
+                    .eq('id', props.id)
+                if (error) {
+                    throw error
+                }
+            } catch (error) {
+                alert("Erro ao excluir")
+            }
+        }
+        props.onRemove();
+        remove();
+    }
+
     return (
         <Card className="sizeCard">
             <Card.Body >
                 <Card.Title>{props.title}</Card.Title>
-                <div className="cardStyle">
-                    <MdCreditCard style={{ fontSize: '40px', color: 'purple' }} />
-                    <Card.Text>
-                        <span>Fechamento: </span>
-                        <strong style={{ fontSize: '20px' }}>Dia {props.fechamento}</strong>
-                        <br />
-                        <span>Vencimento: </span>
-                        <strong style={{ fontSize: '20px' }}>Dia {props.vencimento}</strong>
-                    </Card.Text>
-                </div>
+            </Card.Body>
+            <ListGroup className="list-group-flush">
+                <ListGroupItem>Fechamento: dia {props.fechamento}</ListGroupItem>
+                <ListGroupItem>Vencimento: dia {props.vencimento}</ListGroupItem>
+            </ListGroup>
+            <Card.Body>
+                <Card.Link href="#" onClick={removeItem}>Excluir</Card.Link>
             </Card.Body>
         </Card>
     );

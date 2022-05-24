@@ -1,7 +1,6 @@
 import { } from "bootstrap";
 import './style.css'
 import AccountCard from "./Card";
-import supabase from "../../services/Api";
 
 const AccountList = (props) => {
 
