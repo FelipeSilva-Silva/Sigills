@@ -3,18 +3,47 @@ import { Button, Modal } from "react-bootstrap";
 
 import { AiFillCalculator } from "react-icons/ai";
 import { IoDocumentText } from "react-icons/io5";
-import { MdAccountBalance } from "react-icons/md";
-
-
+import supabase from "../../services/Api";
 
 
 const ModalAddAccount = () => {
 
 
     const [show, setShow] = useState(false);
+    const [description, setDescription] = useState('');
+    const [initialBalance, setInitialBalance] = useState('');
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    async function handleAddItemToList(e) {
+        e.preventDefault();
+
+        if (description && initialBalance) {
+            setDescription("");
+            setInitialBalance("");
+        }
+
+        const insert = {
+            usuario: 1,
+            apelido: description,
+            saldo_inicial: initialBalance,
+        }
+
+        try {
+            const { error } = await supabase
+                .from('contas')
+                .insert([insert]);
+            if (error) {
+                throw error
+            }
+        } catch (error) {
+            alert(error.message)
+        }
+
+        handleClose();
+
+    }
 
     return (
         <>
@@ -32,47 +61,32 @@ const ModalAddAccount = () => {
                 <Modal.Header closeButton>
                     <Modal.Title>Nova Conta</Modal.Title>
                 </Modal.Header>
+
                 <Modal.Body>
-
-                    <form>
-                        <div class=" input-group mb-3 border-0 border-bottom ">
-                            <div class="input-group-text border-0 bg-white"><IoDocumentText style={{ fontSize: '24px' }} /></div>
-                            <input type="text" class="form-control border-0" id="description" placeholder="Descrição" />
+                    <form onSubmit={handleAddItemToList}>
+                        <div className=" input-group mb-3 border-0 border-bottom ">
+                            <div className="input-group-text border-0 bg-white"><IoDocumentText style={{ fontSize: '24px' }} /></div>
+                            <input type="text" className="form-control border-0" id="description"
+                                placeholder="Descrição" value={description} onChange={e => setDescription(e.target.value)} />
                         </div>
-                        <div class="input-group mb-3 border-0 border-bottom ">
-                            <div class="input-group-text border-0 bg-white"><AiFillCalculator style={{ fontSize: '24px' }} /></div>
-                            <input class="form-control border-0" id="price" placeholder="R$ 0,00"></input>
+                        <div className="input-group mb-3 border-0 border-bottom ">
+                            <div className="input-group-text border-0 bg-white"><AiFillCalculator style={{ fontSize: '24px' }} /></div>
+                            <input className="form-control border-0" id="initialBalance"
+                                placeholder="Saldo inicial" value={initialBalance} onChange={e => setInitialBalance(e.target.value)}></input>
                         </div>
-                        <div class="mb-3 d-flex justify-content-between">
-                            <div class="input-group mb-3 border-0 border-bottom me-2">
-                                <div class="input-group-text border-0 bg-white"><MdAccountBalance style={{ fontSize: '24px' }} /></div>
-                                <input class="form-control me-1 border-0 " id="accountExit" placeholder="Conta de origem"></input>
-                            </div>
-                            <div class="input-group mb-3 border-0 border-bottom me-2">
-                                <div class="input-group-text border-0 bg-white"><MdAccountBalance style={{ fontSize: '24px' }} /></div>
-                                <input class="form-control me-1 border-0 " id="accountEntry" placeholder="Conta de destino"></input>
-                            </div>
+                        <div className="input-group mb-3 border-0 me-2">
                         </div>
-                        <div class="mb-3 d-flex justify-content-between w-50">
-                            <div class="input-group date mb-3 border-0 border-bottom me-2">
-                                <input class="form-control border-0" id="date" type="date" placeholder="dd/mm/yyyy"></input>
-                            </div>
-                        </div>
-
-                        <div class="input-group mb-3 border-0 me-2">
-                        </div>
-
-
                     </form>
-
-
                 </Modal.Body>
+
                 <Modal.Footer>
                     <Button className='border-0' onClick={handleClose} >
                         Fechar
                     </Button>
-                    <Button className='border-0' style={{ background: '#20C997' }}>Salvar</Button>
+                    <Button className='border-0' style={{ background: '#20C997' }}
+                        onClick={handleAddItemToList}>Salvar</Button>
                 </Modal.Footer>
+
             </Modal>
         </>
     );
