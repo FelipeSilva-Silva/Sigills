@@ -79,10 +79,10 @@ const Header = () => {
             <Menu iconShape="square">
 
               <SubMenu icon={<BsPlusSquare />} title={'Adicionar'}>
-                <MenuItem> <BsGraphUp style={{ fontSize:'25px', color:'green'}} /> <ModalAddEntry /> </MenuItem>
-                <MenuItem> <BsGraphDown style={{ fontSize:'25px', color:'red'}} /> <ModalAddExit /> </MenuItem>
-                <MenuItem> <MdAutoGraph style={{ fontSize:'25px',color:'blue'}} /> <ModalAddMark /> </MenuItem>
-                <MenuItem> <BsShuffle style={{ fontSize:'25px',color:'yellow'}} /> <ModalAddTansations /> </MenuItem>
+                <MenuItem> <BsGraphUp style={{ fontSize: '25px', color: 'green' }} /> <ModalAddEntry /> </MenuItem>
+                <MenuItem> <BsGraphDown style={{ fontSize: '25px', color: 'red' }} /> <ModalAddExit /> </MenuItem>
+                <MenuItem> <MdAutoGraph style={{ fontSize: '25px', color: 'blue' }} /> <ModalAddMark /> </MenuItem>
+                <MenuItem> <BsShuffle style={{ fontSize: '25px', color: 'yellow' }} /> <ModalAddTansations /> </MenuItem>
               </SubMenu>
 
               <MenuItem icon={<MdDashboard />}>
@@ -92,6 +92,7 @@ const Header = () => {
 
               <MenuItem icon={<BsFillPiggyBankFill />}>
                 Contas
+                <Link to="/Account" />
               </MenuItem>
 
               <MenuItem icon={<BsFillCreditCardFill />}>
