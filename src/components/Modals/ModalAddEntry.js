@@ -12,7 +12,7 @@ const ModalAddEntry = () => {
 
     const [show, setShow] = useState(false);
 
-    const [accounts, setAccounts] = useState('');
+    const [accounts, setAccounts] = useState([]);
 
     const [description, setDescription] = useState('');
     const [value, setValue] = useState('');
@@ -46,7 +46,7 @@ const ModalAddEntry = () => {
             loadAccounts();
         }
     );
-    
+
     async function handleAddItemToList(e) {
         e.preventDefault();
 
@@ -115,7 +115,7 @@ const ModalAddEntry = () => {
                                 <FormSelect className="border-0" value={account} onChange={e => setAccount(e.target.value)}>
                                     {
                                         accounts.map((account) => (
-                                            <option value={account.id}>{account.apelido}</option>
+                                            <option key={account.id} value={account.id}>{account.apelido}</option>
                                         ))
                                     }
                                 </FormSelect>
