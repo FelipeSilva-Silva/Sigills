@@ -48,7 +48,10 @@ function Account() {
                     </div>
                 </div>
 
-                <AccountList itemsList={itemsList} />
+                <AccountList
+                    itemsList={itemsList}
+                    setItemsList={setItemsList}
+                />
 
             </div>
         </div>

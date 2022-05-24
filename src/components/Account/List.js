@@ -1,29 +1,34 @@
 import { } from "bootstrap";
-import { Card } from "react-bootstrap";
 import './style.css'
-import { MdAccountBalance } from "react-icons/md";
+import AccountCard from "./Card";
+import supabase from "../../services/Api";
 
 const AccountList = (props) => {
 
-    const { itemsList } = props;
+    const { itemsList, setItemsList } = props;
+
+    const handleRemoveItem = (item) => {
+        setItemsList(
+            [...itemsList.filter(
+                (task) => {
+                    return task !== item
+                }
+            )
+            ]
+        );
+    }
 
     return (
         <div className='d-flex flex-row flex-wrap w-100 m-1'>
             {
                 itemsList.map((item) => (
-                    <Card key={item.id} className="sizeCard">
-                        <Card.Body>
-                            <Card.Title>{item.apelido}</Card.Title>
-                            <div className="cardStyle">
-                                <MdAccountBalance style={{ fontSize: '40px', color: '#E9EE00' }} />
-                                <Card.Text>
-                                    <span>Saldo</span>
-                                    <br />
-                                    <strong style={{ fontSize: '20px' }}>R$ {item.saldo_inicial}</strong>
-                                </Card.Text>
-                            </div>
-                        </Card.Body>
-                    </Card>
+                    <AccountCard
+                        key={item.id}
+                        id={item.id}
+                        apelido={item.apelido}
+                        saldo_inicial={item.saldo_inicial}
+                        onRemove={handleRemoveItem}
+                    />
                 ))
             }
         </div>
