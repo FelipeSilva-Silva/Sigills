@@ -1,50 +1,42 @@
 import { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
 import Sidebar from '../../components/Navbar/Sidebar';
-import TableReport from '../../components/TableReport';
 import supabase from '../../services/Api';
-
+import { BsFillCalendarRangeFill } from "react-icons/bs";
+import { IoDocumentText } from "react-icons/io5";
+import { MdAttachMoney } from "react-icons/md";
+import ReportList from '../../components/Report/List';
 
 
 function Report() {
 
     const [transitions, setTransitions] = useState([]);
+    // const [enableEntries, setEnableEntries] = useState(false);
+    // const [enableExits, setEnableExits] = useState(false);
 
     useEffect(
         () => {
             async function loadTransitions() {
-                try {
-                    let { data: entradas, error } = await supabase
-                        .from('entradas')
-                        .select("*")
+                // if (enableEntries) {
+                    try {
+                        let { data: entradas, error } = await supabase
+                            .from('entradas')
+                            .select("*")
 
-                    if (error) {
-                        throw error;
+                        if (error) {
+                            throw error;
+                        }
+
+                        if (entradas) {
+                            setTransitions(entradas);
+                        }
+                    } catch (error) {
+                        alert("Erro ao carregar movimentações");
+                        console.log(error);
                     }
-
-                    if (entradas) {
-                        setTransitions(entradas);
-                    }
-
-                    // let { data: saidas, error: errorEx } = await supabase
-                    //     .from('saidas')
-                    //     .select("*")
-
-                    // if (error) {
-                    //     throw error;
-                    // }
-
-                    // if (saidas) {
-                    //     setTransitions(Array.prototype.concat(transitions, saidas.map(
-                    //         (saida) => {
-                    //             saida.valor *= -1;
-                    //             return saida;
-                    //         }
-                    //     )));
-                    // }
-                } catch (error) {
-                    alert("Erro ao carregar movimentações");
-                    console.log(error);
-                }
+                // } else {
+                //     setTransitions([]);
+                // }
             }
 
             loadTransitions();
@@ -86,9 +78,26 @@ function Report() {
 
                 </div>
 
-                <TableReport
-                    transitions={transitions}
-                />
+                <div className="container-fluid p-5">
+                    <div className="card" style={{ height: '73vh' }}>
+                        <div className="card-body h-100 overflow-auto">
+
+                            <Table striped bordered hover style={{ textAlign: 'center' }} >
+                                <thead>
+                                    <tr>
+                                        <th> <BsFillCalendarRangeFill /> Data</th>
+                                        <th> <IoDocumentText /> Descrição</th>
+                                        <th> <MdAttachMoney style={{ color: 'green' }} /> Valor</th>
+                                    </tr>
+                                </thead>
+                                <ReportList
+                                    itemsList={transitions}
+                                    setItemsList={setTransitions}
+                                />
+                            </Table>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>

@@ -1,5 +1,4 @@
 import { } from "bootstrap";
-import './style.css'
 import supabase from "../../services/Api";
 
 const ReportRow = (props) => {
@@ -8,7 +7,7 @@ const ReportRow = (props) => {
         async function remove() {
             try {
                 const { error } = await supabase
-                    .from('contas')
+                    .from('entradas')
                     .delete()
                     .eq('id', props.id)
                 if (error) {
@@ -23,17 +22,17 @@ const ReportRow = (props) => {
     }
 
     return (
-        <th key={props.id}>
+        <tr key={props.id}>
             <td>
                 {props.data}
             </td>
             <td>
-                {props.descricao}
+                {props.descricao} (<a href="#" onClick={removeItem}>excluir</a>)
             </td>
             <td>
                 R$ {props.valor}
             </td>
-        </th>
+        </tr>
     );
 }
 

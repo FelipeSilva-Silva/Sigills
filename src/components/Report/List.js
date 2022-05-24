@@ -1,5 +1,4 @@
 import { } from "bootstrap";
-import './style.css'
 import ReportRow from "./Row";
 
 const ReportList = (props) => {
@@ -18,19 +17,20 @@ const ReportList = (props) => {
     }
 
     return (
-        <div className='d-flex flex-row flex-wrap w-100 m-1'>
+        <tbody>
             {
                 itemsList.map((item) => (
                     <ReportRow
                         key={item.id}
                         id={item.id}
+                        data={item.data}
                         descricao={item.descricao}
                         valor={item.valor}
                         onRemove={handleRemoveItem}
                     />
                 ))
             }
-        </div>
+        </tbody>
     );
 }
 
