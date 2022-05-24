@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { Button, Form, InputGroup, Modal } from "react-bootstrap";
-import { IoDocumentText } from "react-icons/io5";
 import supabase from "../../services/Api";
 
 const ModalAddCredit = () => {
-
 
     const [show, setShow] = useState(false);
     const [description, setDescription] = useState('');
