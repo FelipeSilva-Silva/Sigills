@@ -37,7 +37,17 @@ function Report() {
                                 saida.valor *= -1;
                                 return saida;
                             }
-                        )));
+                        )).sort(
+                            (transitionA, transitionB) => {
+                                if (transitionA.data > transitionB.data) {
+                                    return -1;
+                                }
+                                if (transitionA.data < transitionB.data) {
+                                    return 1;
+                                }
+                                return 0;
+                            }
+                        ));
                     }
                 } catch (error) {
                     alert("Erro ao carregar movimentações");
