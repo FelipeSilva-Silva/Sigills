@@ -1,7 +1,6 @@
 import Sidebar from '../../components/Navbar/Sidebar';
 import Cards from '../../components/Cards';
 
-import './style.css'
 
 function Account() {
 
