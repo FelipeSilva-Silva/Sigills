@@ -1,7 +1,11 @@
 import { Col, Form } from 'react-bootstrap';
 import Sidebar from '../../components/Navbar/Sidebar';
+import { useAuth } from '../../hooks/useAuth';
 
 const Setting = () => {
+
+  const {user}  = useAuth();
+
     return (
 
         <div className="d-flex flex-row w-100">
@@ -32,12 +36,12 @@ const Setting = () => {
                                 <div className="row g-3">
                                     <div className="col-12">
                                         <Form.Label>Nome</Form.Label>
-                                        <Form.Control type="text" defaultValue='Nome Cadastrado' />
+                                        <Form.Control type="text" Value={user.nome} />
                                     </div>
 
                                     <div className="col-12">
                                         <Form.Label>Nome</Form.Label>
-                                        <Form.Control type="email" Value='user@gmail.com' disabled />
+                                        <Form.Control type="email" Value={user.email} disabled />
                                     </div>
 
                                     <div className="col-md-6">

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button, Form, InputGroup, Modal } from "react-bootstrap";
+import { useAuth } from "../../hooks/useAuth";
 import supabase from "../../services/Api";
 
 const ModalAddCredit = () => {
@@ -8,7 +9,8 @@ const ModalAddCredit = () => {
     const [description, setDescription] = useState('');
     const [closingDate, setClosingDate] = useState('');
     const [dueDate, setDueDate] = useState('');
-
+    const {user}  = useAuth();
+    
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -22,7 +24,7 @@ const ModalAddCredit = () => {
         }
 
         const insert = {
-            usuario: 1,
+            usuario: user.id,
             apelido: description,
             fechamento: closingDate,
             vencimento: dueDate,

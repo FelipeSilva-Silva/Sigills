@@ -3,6 +3,7 @@ import { Button, Modal } from "react-bootstrap";
 
 import { AiFillCalculator } from "react-icons/ai";
 import { IoDocumentText } from "react-icons/io5";
+import { useAuth } from "../../hooks/useAuth";
 import supabase from "../../services/Api";
 
 
@@ -15,6 +16,7 @@ const ModalAddAccount = () => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const {user}  = useAuth();
 
     async function handleAddItemToList(e) {
         e.preventDefault();
@@ -25,7 +27,7 @@ const ModalAddAccount = () => {
         }
 
         const insert = {
-            usuario: 1,
+            usuario: user.id,
             apelido: description,
             saldo_inicial: initialBalance,
         }

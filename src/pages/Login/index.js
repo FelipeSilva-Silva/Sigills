@@ -5,10 +5,12 @@ import iconGmail from '../../assets/icons8-google-logo.svg'
 import './style.css'
 
 import supabase from '../../services/Api'
+import { useAuth } from "../../hooks/useAuth";
 
 
 function Login() {
 
+    const {user,setUser} = useAuth();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -33,6 +35,7 @@ function Login() {
 
             if (user) {
                 navigate('/Dashboard');
+                setUser(user)
 
             } else if (email === "" && password === "") {
 

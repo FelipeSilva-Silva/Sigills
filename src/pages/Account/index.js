@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Sidebar from '../../components/Navbar/Sidebar';
 import supabase from '../../services/Api'
 import AccountList from '../../components/Account/List';
+import { useAuth } from '../../hooks/useAuth';
 
 function Account() {
 
     const [itemsList, setItemsList] = useState([]);
+    const { user } = useAuth();
+
 
     useEffect(
         () => {
@@ -14,7 +17,7 @@ function Account() {
                     let { data: contas, error } = await supabase
                         .from('contas')
                         .select("*")
-                        .eq('usuario', 1);
+                        .eq('usuario', user.id);
 
                     if (error) {
                         throw error;

@@ -28,6 +28,7 @@ import ModalAddMark from "../Modals/ModalAddMark";
 import ModalAddAccount from "../Modals/ModalAddAccount";
 import ModalAddCredit from "../Modals/ModalAddCredit";
 import ModalAddTansations from "../Modals/ModalAddTansations";
+import { useAuth } from "../../hooks/useAuth";
 
 
 
@@ -39,8 +40,7 @@ const Header = () => {
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
   };
 
-
-
+  const {user}  = useAuth();
   return (
     <>
       <div id="header">
@@ -67,8 +67,9 @@ const Header = () => {
 
               <BsFillPersonFill className="userMenuIcon" />
               <div>
-                <h6>Nome</h6>
-                <h6>user@gmail.com</h6>
+                
+                <h6>{user.nome}</h6>
+                <h6>{user.email}</h6>
 
               </div>
 
