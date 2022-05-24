@@ -8,7 +8,7 @@ const AccountList = (props) => {
     const { itemsList } = props;
 
     return (
-        <div className='d-flex flex-row w-100'>
+        <div className='d-flex flex-row flex-wrap w-100 m-1'>
             {
                 itemsList.map((item) => (
                     <Card key={item.id} className="sizeCard">
@@ -17,9 +17,9 @@ const AccountList = (props) => {
                             <div className="cardStyle">
                                 <MdAccountBalance style={{ fontSize: '40px', color: '#E9EE00' }} />
                                 <Card.Text>
-                                    <strong>Saldo</strong>
+                                    <span>Saldo</span>
                                     <br />
-                                    <strong style={{ fontSize: '20px' }}> $ {item.saldo_inicial}</strong>
+                                    <strong style={{ fontSize: '20px' }}>R$ {item.saldo_inicial}</strong>
                                 </Card.Text>
                             </div>
                         </Card.Body>
