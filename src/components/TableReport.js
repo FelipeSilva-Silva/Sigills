@@ -5,12 +5,12 @@ import { IoDocumentText } from "react-icons/io5";
 import { MdAttachMoney } from "react-icons/md";
 
 
-const TableReport = () => {
+const TableReport = (props) => {
 
     return (
-        <div class="container-fluid p-5">
-            <div class="card" style={{ height: '73vh' }}>
-                <div class="card-body h-100 overflow-auto">
+        <div className="container-fluid p-5">
+            <div className="card" style={{ height: '73vh' }}>
+                <div className="card-body h-100 overflow-auto">
 
                     <Table striped bordered hover style={{ textAlign: 'center' }} >
                         <thead>

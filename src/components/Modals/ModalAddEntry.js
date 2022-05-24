@@ -39,7 +39,7 @@ const ModalAddEntry = () => {
                         setAccounts(contas);
                     }
                 } catch (error) {
-                    alert("Erro ao carregar dados");
+                    alert("Erro ao carregar contas para cadastrar entrada");
                     console.log(error);
                 }
             }
@@ -99,19 +99,19 @@ const ModalAddEntry = () => {
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
-                        <div class=" input-group mb-3 border-0 border-bottom ">
-                            <div class="input-group-text border-0 bg-white"><IoDocumentText style={{ fontSize: '24px' }} /></div>
-                            <input type="text" class="form-control border-0" id="description" placeholder="Descrição"
+                        <div className=" input-group mb-3 border-0 border-bottom ">
+                            <div className="input-group-text border-0 bg-white"><IoDocumentText style={{ fontSize: '24px' }} /></div>
+                            <input type="text" className="form-control border-0" id="description" placeholder="Descrição"
                                 value={description} onChange={e => setDescription(e.target.value)} />
                         </div>
-                        <div class="input-group mb-3 border-0 border-bottom ">
-                            <div class="input-group-text border-0 bg-white"><AiFillCalculator style={{ fontSize: '24px' }} /></div>
-                            <input class="form-control border-0" id="price" placeholder="R$ 0,00"
+                        <div className="input-group mb-3 border-0 border-bottom ">
+                            <div className="input-group-text border-0 bg-white"><AiFillCalculator style={{ fontSize: '24px' }} /></div>
+                            <input className="form-control border-0" id="price" placeholder="R$ 0,00"
                                 value={value} onChange={e => setValue(e.target.value)} />
                         </div>
-                        <div class="mb-3 d-flex justify-content-between">
-                            <div class="input-group mb-3 border-0 border-bottom me-2">
-                                <div class="input-group-text border-0 bg-white"><MdAccountBalance style={{ fontSize: '24px' }} /></div>
+                        <div className="mb-3 d-flex justify-content-between">
+                            <div className="input-group mb-3 border-0 border-bottom me-2">
+                                <div className="input-group-text border-0 bg-white"><MdAccountBalance style={{ fontSize: '24px' }} /></div>
                                 <FormSelect className="border-0" value={account} onChange={e => setAccount(e.target.value)}>
                                     {
                                         accounts.map((account) => (
@@ -120,8 +120,8 @@ const ModalAddEntry = () => {
                                     }
                                 </FormSelect>
                             </div>
-                            <div class="input-group mb-3 border-0 border-bottom ms-2">
-                                <div class="input-group-text border-0 bg-white"><MdTurnedInNot style={{ fontSize: '24px' }} /></div>
+                            <div className="input-group mb-3 border-0 border-bottom ms-2">
+                                <div className="input-group-text border-0 bg-white"><MdTurnedInNot style={{ fontSize: '24px' }} /></div>
 
                                 <Form.Select className="border-0" aria-label="Default select example">
                                     <option>Categorias</option>
@@ -131,27 +131,27 @@ const ModalAddEntry = () => {
 
                             </div>
                         </div>
-                        <div class="mb-3 d-flex justify-content-between">
-                            <div class="input-group date mb-3 border-0 border-bottom me-2">
-                                <input class="form-control border-0" id="date" type="date" placeholder="dd/mm/yyyy"
+                        <div className="mb-3 d-flex justify-content-between">
+                            <div className="input-group date mb-3 border-0 border-bottom me-2">
+                                <input className="form-control border-0" id="date" type="date" placeholder="dd/mm/yyyy"
                                     value={date} onChange={e => setDate(e.target.value)} />
                             </div>
-                            <div class="input-group mb-3 border-0 border-bottom ms-2">
-                                <div class="input-group-text border-0 bg-white"><BsPinFill style={{ fontSize: '24px' }} /></div>
-                                <div class="form-control form-switch ps-3 border-0 d-flex justify-content-between">
-                                    <label class="form-check-label m-0" for="type">Entrada Fixa</label>
-                                    <input class="form-check-input ms-1 me-0" type="checkbox" role="switch" id="type" />
+                            <div className="input-group mb-3 border-0 border-bottom ms-2">
+                                <div className="input-group-text border-0 bg-white"><BsPinFill style={{ fontSize: '24px' }} /></div>
+                                <div className="form-control form-switch ps-3 border-0 d-flex justify-content-between">
+                                    <label className="form-check-label m-0" htmlFor="type">Entrada Fixa</label>
+                                    <input className="form-check-input ms-1 me-0" type="checkbox" role="switch" id="type" />
                                 </div>
                             </div>
                         </div>
-                        <div class="mb-3 d-flex justify-content-between">
-                            <div class="input-group mb-3 border-0 me-2">
+                        <div className="mb-3 d-flex justify-content-between">
+                            <div className="input-group mb-3 border-0 me-2">
                             </div>
-                            <div class="input-group mb-3 border-0 border-bottom ms-2">
-                                <div class="input-group-text border-0 bg-white"><BsCheckCircle style={{ fontSize: '24px' }} /></div>
-                                <div class="form-control form-switch ps-3 border-0 d-flex justify-content-between" >
-                                    <label class="form-check-label" for="status">Efetivada</label>
-                                    <input class="form-check-input" type="checkbox" role="switch" id="status" />
+                            <div className="input-group mb-3 border-0 border-bottom ms-2">
+                                <div className="input-group-text border-0 bg-white"><BsCheckCircle style={{ fontSize: '24px' }} /></div>
+                                <div className="form-control form-switch ps-3 border-0 d-flex justify-content-between" >
+                                    <label className="form-check-label" htmlFor="status">Efetivada</label>
+                                    <input className="form-check-input" type="checkbox" role="switch" id="status" />
                                 </div>
                             </div>
                         </div>
