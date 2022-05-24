@@ -25,6 +25,8 @@ import "./Sidebar.css";
 import ModalAddEntry from "../Modals/ModalAddEntry";
 import ModalAddExit from "../Modals/ModalAddExit";
 import ModalAddMark from "../Modals/ModalAddMark";
+import ModalAddAccount from "../Modals/ModalAddAccount";
+import ModalAddCredit from "../Modals/ModalAddCredit";
 import ModalAddTansations from "../Modals/ModalAddTansations";
 
 
@@ -82,6 +84,8 @@ const Header = () => {
                 <MenuItem> <BsGraphUp style={{ fontSize: '25px', color: 'green' }} /> <ModalAddEntry /> </MenuItem>
                 <MenuItem> <BsGraphDown style={{ fontSize: '25px', color: 'red' }} /> <ModalAddExit /> </MenuItem>
                 <MenuItem> <MdAutoGraph style={{ fontSize: '25px', color: 'blue' }} /> <ModalAddMark /> </MenuItem>
+                <MenuItem> <BsFillPiggyBankFill style={{ fontSize: '25px', color: '#E9EE00' }} /> <ModalAddAccount /> </MenuItem>
+                <MenuItem> <BsFillCreditCardFill style={{ fontSize: '25px', color: '#1DA0FF' }} /> <ModalAddCredit /> </MenuItem>
                 <MenuItem> <BsShuffle style={{ fontSize: '25px', color: 'yellow' }} /> <ModalAddTansations /> </MenuItem>
               </SubMenu>
 
@@ -97,6 +101,7 @@ const Header = () => {
 
               <MenuItem icon={<BsFillCreditCardFill />}>
                 Cartão de Credito
+                <Link to="/Credit" />
               </MenuItem>
 
               <MenuItem icon={<RiPencilLine />}>
