@@ -7,6 +7,7 @@ import Account from "../pages/Account";
 import Credit from "../pages/Credit";
 import Setting from "../pages/Setting";
 import Report from "../pages/Report";
+import Mark from "../pages/Mark";
 
 
 function Rotas() {
@@ -19,6 +20,7 @@ function Rotas() {
                 <Route element={<Credit />} path='/Credit' />
                 <Route element={<Setting />} path='/Settings' />
                 <Route element={<Report />} path='/Report' />
+                <Route element={<Mark />} path='/Mark' />
 
             </Routes>
         </BrowserRouter>
