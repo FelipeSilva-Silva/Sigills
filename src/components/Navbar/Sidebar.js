@@ -105,6 +105,7 @@ const Header = () => {
 
               <MenuItem icon={<BsFillFileBarGraphFill />}>
                 Relatórios
+                <Link to="/Report" />
               </MenuItem>
 
             </Menu>

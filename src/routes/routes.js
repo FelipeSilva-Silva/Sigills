@@ -5,6 +5,7 @@ import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import Account from "../pages/Account";
 import Setting from "../pages/Setting";
+import Report from "../pages/Report";
 
 
 function Rotas() {
@@ -15,6 +16,7 @@ function Rotas() {
                 <Route element={<Dashboard />} path='/Dashboard' />
                 <Route element={<Account />} path='/Account' />
                 <Route element={<Setting />} path='/Settings' />
+                <Route element={<Report />} path='/Report' />
 
             </Routes>
         </BrowserRouter>
