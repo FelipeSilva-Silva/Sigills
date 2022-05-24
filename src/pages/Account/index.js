@@ -1,9 +1,39 @@
+import React, { useState, useEffect } from 'react';
 import Sidebar from '../../components/Navbar/Sidebar';
-import Cards from '../../components/Cards';
 
 import './style.css'
 
+import supabase from '../../services/Api'
+import AccountList from '../../components/Account/List';
+
 function Account() {
+
+    const [itemsList, setItemsList] = useState([]);
+
+    useEffect(
+        () => {
+            async function loadData() {
+                try {
+                    let { data: contas, error } = await supabase
+                        .from('contas')
+                        .select("*")
+                        .eq('usuario', 1);
+
+                    if (error) {
+                        throw error;
+                    }
+
+                    if (contas) {
+                        setItemsList(contas);
+                    }
+                } catch (error) {
+                    alert("Erro ao carregar dados");
+                    console.log(error);
+                }
+            }
+            loadData();
+        }
+    );
 
     return (
         <div className='d-flex w-100'>
@@ -21,15 +51,7 @@ function Account() {
                     </div>
                 </div>
 
-                <div className='d-flex flex-row w-100'>
-                    <div className='p-4' style={{ width: '65vh' }}>
-                        <Cards name={'Nubank'} />
-                    </div>
-
-                    <div className='p-4' style={{ width: '65vh' }}>
-                        <Cards name={'Carteira'} />
-                    </div>
-                </div>
+                <AccountList itemsList={itemsList} />
 
             </div>
         </div>
