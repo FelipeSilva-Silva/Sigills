@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import { useState} from 'react';
 import { useNavigate } from "react-router-dom";
 
 import iconGmail from '../../assets/icons8-google-logo.svg'
 import './style.css'
 
-import supabase from '../../services/Api'
 import { useAuth } from "../../hooks/useAuth";
+import api from '../../services/Api';
 
 
 function Login() {
 
-    const {user,setUser} = useAuth();
+    const {setUser} = useAuth();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -19,93 +19,31 @@ function Login() {
 
     async function handleLogin(e) {
         e.preventDefault();
-        const usu = { email, password };
-
-        try {
-            let { data: user, error, status } = await supabase
-                .from('users')
-                .select(`*`)
-                .eq('email', usu.email)
-                .eq('senha', usu.password)
-                .single()
-
-            if (error && status !== 406) {
-                throw error
-            }
-
-            if (user) {
-                navigate('/Dashboard');
-                setUser(user)
-
-            } else if (email === "" && password === "") {
-
-                let email = document.getElementById("emailE");
-                email.style.borderColor = "red";
-                let senha = document.getElementById("passwordE");
-                senha.style.borderColor = "red";
-
-                let camp = document.getElementById("camp");
-                camp.innerHTML = "Os campos em vermelho devem ser prenchidos";
-                camp.style.color = "red";
-                camp.style.fontSize = "14px";
-
-            } else if (email === "") {
-
-                let email = document.getElementById("passwordE");
-                email.style.borderColor = "red";
-
-                let camp = document.getElementById("camp");
-                camp.innerHTML = "Os campos em vermelho devem ser prenchidos";
-                camp.style.color = "red";
-                camp.style.fontSize = "14px";
-
-            } else if (password === "") {
-
-                let senha = document.getElementById("passwordE");
-                senha.style.borderColor = "red";
-
-                let camp = document.getElementById("camp");
-                camp.innerHTML = "Os campos em vermelho devem ser prenchidos";
-                camp.style.color = "red";
-                camp.style.fontSize = "14px";
-
-            } else {
-                let camp = document.getElementById("camp");
-                camp.innerHTML = "Login ou senha inválidos";
-                camp.style.color = "red";
-                camp.style.fontSize = "14px";
-
-            }
-
-        } catch (error) {
-            alert("Login ou senha inválidos")
-        }
+        
+        navigate('/Dashboard');
+        
     }
 
-
-    async function signInWithEmail(e) {
-        e.preventDefault();
-        const usu = { email, password };
-
-        const insert = {
-            nome: usu.name,
-            email: usu.email,
-            senha: usu.password
-        }
-
-        try {
-            const { error } = await supabase
-                .from('users')
-                .insert([insert]);
-            if (error) {
-                throw error
+    
+        function signInWithEmail(e) {
+            e.preventDefault();
+    
+            const userData = {
+                name: name,
+                email: email,
+                password: password,
             }
-        } catch (error) {
-            alert(error.message)
+            api.post("/users", userData)
+            .then((response) => {
+                console.log("response: " + response.status);
+                console.log("data: " + response.data);
+                navigate('/')
+            }).catch((err)=>{
+                console.error("erro cadastrar: " + err);
+            })
         }
-
-
-    }
+    
+    
 
     return (
         <div className="container">
@@ -229,5 +167,6 @@ function Login() {
         </div>
     )
 }
+
 
 export default Login;

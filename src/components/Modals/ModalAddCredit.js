@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button, Form, InputGroup, Modal } from "react-bootstrap";
 import { useAuth } from "../../hooks/useAuth";
-import supabase from "../../services/Api";
 
 const ModalAddCredit = () => {
 
@@ -17,29 +16,29 @@ const ModalAddCredit = () => {
     async function handleAddItemToList(e) {
         e.preventDefault();
 
-        if (description && closingDate && dueDate) {
-            setDescription("");
-            setClosingDate("");
-            setDueDate("");
-        }
+        // if (description && closingDate && dueDate) {
+        //     setDescription("");
+        //     setClosingDate("");
+        //     setDueDate("");
+        // }
 
-        const insert = {
-            usuario: user.id,
-            apelido: description,
-            fechamento: closingDate,
-            vencimento: dueDate,
-        }
+        // const insert = {
+        //     usuario: user.id,
+        //     apelido: description,
+        //     fechamento: closingDate,
+        //     vencimento: dueDate,
+        // }
 
-        try {
-            const { error } = await supabase
-                .from('cartoes')
-                .insert([insert]);
-            if (error) {
-                throw error
-            }
-        } catch (error) {
-            alert(error.message)
-        }
+        // try {
+        //     const { error } = await supabase
+        //         .from('cartoes')
+        //         .insert([insert]);
+        //     if (error) {
+        //         throw error
+        //     }
+        // } catch (error) {
+        //     alert(error.message)
+        // }
 
         handleClose();
 

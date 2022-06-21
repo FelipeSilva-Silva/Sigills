@@ -1,35 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from '../../components/Navbar/Sidebar';
-import supabase from '../../services/Api'
 import AccountList from '../../components/Account/List';
-import { useAuth } from '../../hooks/useAuth';
 
 function Account() {
 
     const [itemsList, setItemsList] = useState([]);
-    const { user } = useAuth();
 
 
     useEffect(
         () => {
             async function loadData() {
-                try {
-                    let { data: contas, error } = await supabase
-                        .from('contas')
-                        .select("*")
-                        .eq('usuario', user.id);
+                // try {
+                //     let { data: contas, error } = await supabase
+                //         .from('contas')
+                //         .select("*")
+                //         .eq('usuario', user.id);
 
-                    if (error) {
-                        throw error;
-                    }
+                //     if (error) {
+                //         throw error;
+                //     }
 
-                    if (contas) {
-                        setItemsList(contas);
-                    }
-                } catch (error) {
-                    alert("Erro ao carregar dados");
-                    console.log(error);
-                }
+                //     if (contas) {
+                //         setItemsList(contas);
+                //     }
+                // } catch (error) {
+                //     alert("Erro ao carregar dados");
+                //     console.log(error);
+                // }
             }
             loadData();
         }

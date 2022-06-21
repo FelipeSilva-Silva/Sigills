@@ -5,7 +5,6 @@ import { AiFillCalculator } from "react-icons/ai";
 import { IoDocumentText } from "react-icons/io5";
 import { MdAccountBalance, MdTurnedInNot } from "react-icons/md";
 import { BsPinFill, BsCheckCircle } from "react-icons/bs";
-import supabase from "../../services/Api";
 
 const ModalAddEntry = () => {
 
@@ -25,23 +24,23 @@ const ModalAddEntry = () => {
     useEffect(
         () => {
             async function loadAccounts() {
-                try {
-                    let { data: contas, error } = await supabase
-                        .from('contas')
-                        .select("*")
-                        .eq('usuario', 1);
+                // try {
+                //     let { data: contas, error } = await supabase
+                //         .from('contas')
+                //         .select("*")
+                //         .eq('usuario', 1);
 
-                    if (error) {
-                        throw error;
-                    }
+                //     if (error) {
+                //         throw error;
+                //     }
 
-                    if (contas) {
-                        setAccounts(contas);
-                    }
-                } catch (error) {
-                    alert("Erro ao carregar contas para cadastrar entrada");
-                    console.log(error);
-                }
+                //     if (contas) {
+                //         setAccounts(contas);
+                //     }
+                // } catch (error) {
+                //     alert("Erro ao carregar contas para cadastrar entrada");
+                //     console.log(error);
+                // }
             }
             loadAccounts();
         }
@@ -50,30 +49,30 @@ const ModalAddEntry = () => {
     async function handleAddItemToList(e) {
         e.preventDefault();
 
-        if (description && value && account && date) {
-            setDescription("");
-            setValue("");
-            setAccount("");
-            setDate("");
-        }
+        // if (description && value && account && date) {
+        //     setDescription("");
+        //     setValue("");
+        //     setAccount("");
+        //     setDate("");
+        // }
 
-        const insert = {
-            conta: account,
-            descricao: description,
-            valor: value,
-            data: date,
-        }
+        // const insert = {
+        //     conta: account,
+        //     descricao: description,
+        //     valor: value,
+        //     data: date,
+        // }
 
-        try {
-            const { error } = await supabase
-                .from('entradas')
-                .insert([insert]);
-            if (error) {
-                throw error
-            }
-        } catch (error) {
-            alert(error.message)
-        }
+        // try {
+        //     const { error } = await supabase
+        //         .from('entradas')
+        //         .insert([insert]);
+        //     if (error) {
+        //         throw error
+        //     }
+        // } catch (error) {
+        //     alert(error.message)
+        // }
 
         handleClose();
 

@@ -68,8 +68,8 @@ const Header = () => {
               <BsFillPersonFill className="userMenuIcon" />
               <div>
                 
-                <h6>{user.nome}</h6>
-                <h6>{user.email}</h6>
+                <h6>{}</h6>
+                <h6>{}</h6>
 
               </div>
 

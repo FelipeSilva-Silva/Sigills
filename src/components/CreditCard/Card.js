@@ -1,26 +1,26 @@
 import { } from "bootstrap";
 import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
 import './style.css'
-import supabase from "../../services/Api";
+
 
 const CreditCard = (props) => {
 
     const removeItem = (item) => {
-        async function remove() {
-            try {
-                const { error } = await supabase
-                    .from('cartoes')
-                    .delete()
-                    .eq('id', props.id)
-                if (error) {
-                    throw error
-                }
-            } catch (error) {
-                alert("Erro ao excluir")
-            }
-        }
-        props.onRemove();
-        remove();
+    //     async function remove() {
+    //         try {
+    //             const { error } = await supabase
+    //                 .from('cartoes')
+    //                 .delete()
+    //                 .eq('id', props.id)
+    //             if (error) {
+    //                 throw error
+    //             }
+    //         } catch (error) {
+    //             alert("Erro ao excluir")
+    //         }
+    //     }
+    //     props.onRemove();
+    //     remove();
     }
 
     return (

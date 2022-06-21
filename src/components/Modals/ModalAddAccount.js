@@ -4,7 +4,6 @@ import { Button, Modal } from "react-bootstrap";
 import { AiFillCalculator } from "react-icons/ai";
 import { IoDocumentText } from "react-icons/io5";
 import { useAuth } from "../../hooks/useAuth";
-import supabase from "../../services/Api";
 
 
 const ModalAddAccount = () => {
@@ -21,27 +20,27 @@ const ModalAddAccount = () => {
     async function handleAddItemToList(e) {
         e.preventDefault();
 
-        if (description && initialBalance) {
-            setDescription("");
-            setInitialBalance("");
-        }
+        // if (description && initialBalance) {
+        //     setDescription("");
+        //     setInitialBalance("");
+        // }
 
-        const insert = {
-            usuario: user.id,
-            apelido: description,
-            saldo_inicial: initialBalance,
-        }
+        // const insert = {
+        //     usuario: user.id,
+        //     apelido: description,
+        //     saldo_inicial: initialBalance,
+        // }
 
-        try {
-            const { error } = await supabase
-                .from('contas')
-                .insert([insert]);
-            if (error) {
-                throw error
-            }
-        } catch (error) {
-            alert(error.message)
-        }
+        // try {
+        //     const { error } = await supabase
+        //         .from('contas')
+        //         .insert([insert]);
+        //     if (error) {
+        //         throw error
+        //     }
+        // } catch (error) {
+        //     alert(error.message)
+        // }
 
         handleClose();
 

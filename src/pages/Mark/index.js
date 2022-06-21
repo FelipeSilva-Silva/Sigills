@@ -1,7 +1,4 @@
-import { useEffect, useState } from 'react';
 import Sidebar from '../../components/Navbar/Sidebar';
-import TableReport from '../../components/TableReport';
-import supabase from '../../services/Api';
 
 
 

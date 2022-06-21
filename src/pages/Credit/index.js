@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from '../../components/Navbar/Sidebar';
 import CreditList from '../../components/CreditCard/List';
-import supabase from '../../services/Api';
 
 function Credit() {
 
@@ -10,23 +9,23 @@ function Credit() {
     useEffect(
         () => {
             async function loadData() {
-                try {
-                    let { data: cartoes, error } = await supabase
-                        .from('cartoes')
-                        .select("*")
-                        .eq('usuario', 1);
+                // try {
+                //     let { data: cartoes, error } = await supabase
+                //         .from('cartoes')
+                //         .select("*")
+                //         .eq('usuario', 1);
 
-                    if (error) {
-                        throw error;
-                    }
+                //     if (error) {
+                //         throw error;
+                //     }
 
-                    if (cartoes) {
-                        setItemsList(cartoes);
-                    }
-                } catch (error) {
-                    alert("Erro ao carregar dados");
-                    console.log(error);
-                }
+                //     if (cartoes) {
+                //         setItemsList(cartoes);
+                //     }
+                // } catch (error) {
+                //     alert("Erro ao carregar dados");
+                //     console.log(error);
+                // }
             }
             loadData();
         }

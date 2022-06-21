@@ -36,12 +36,12 @@ const Setting = () => {
                                 <div className="row g-3">
                                     <div className="col-12">
                                         <Form.Label>Nome</Form.Label>
-                                        <Form.Control type="text" Value={user.nome} />
+                                        <Form.Control type="text"  />
                                     </div>
 
                                     <div className="col-12">
                                         <Form.Label>Nome</Form.Label>
-                                        <Form.Control type="email" Value={user.email} disabled />
+                                        <Form.Control type="email" disabled />
                                     </div>
 
                                     <div className="col-md-6">

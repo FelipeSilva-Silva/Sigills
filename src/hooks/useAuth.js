@@ -1,13 +1,9 @@
-import {createContext, useState, useContext, useEffect} from "react";
-import supabase from "../services/Api";
+import {createContext, useState, useContext} from "react";
 
 const AuthContext = createContext();
 
 export function AuthContextProvvider({children}){
     const [user,setUser] = useState();
-
-
-   
 
     return(
         <AuthContext.Provider value={{user,setUser}}>

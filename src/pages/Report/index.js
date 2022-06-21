@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import Sidebar from '../../components/Navbar/Sidebar';
-import supabase from '../../services/Api';
 import { BsFillCalendarRangeFill } from "react-icons/bs";
 import { IoDocumentText } from "react-icons/io5";
 import { MdAttachMoney } from "react-icons/md";
@@ -17,42 +16,42 @@ function Report() {
     useEffect(
         () => {
             async function loadTransitions() {
-                try {
-                    let { data: entradas, error } = await supabase
-                        .from('entradas')
-                        .select("*");
+                // try {
+                //     let { data: entradas, error } = await supabase
+                //         .from('entradas')
+                //         .select("*");
 
 
-                    let { data: saidas, errorExits } = await supabase
-                        .from('saidas')
-                        .select("*");
+                //     let { data: saidas, errorExits } = await supabase
+                //         .from('saidas')
+                //         .select("*");
 
-                    if (error || errorExits) {
-                        throw error;
-                    }
+                //     if (error || errorExits) {
+                //         throw error;
+                //     }
 
-                    if (entradas) {
-                        setTransitions(Array.prototype.concat(entradas, saidas.map(
-                            (saida) => {
-                                saida.valor *= -1;
-                                return saida;
-                            }
-                        )).sort(
-                            (transitionA, transitionB) => {
-                                if (transitionA.data > transitionB.data) {
-                                    return -1;
-                                }
-                                if (transitionA.data < transitionB.data) {
-                                    return 1;
-                                }
-                                return 0;
-                            }
-                        ));
-                    }
-                } catch (error) {
-                    alert("Erro ao carregar movimentações");
-                    console.log(error);
-                }
+                //     if (entradas) {
+                //         setTransitions(Array.prototype.concat(entradas, saidas.map(
+                //             (saida) => {
+                //                 saida.valor *= -1;
+                //                 return saida;
+                //             }
+                //         )).sort(
+                //             (transitionA, transitionB) => {
+                //                 if (transitionA.data > transitionB.data) {
+                //                     return -1;
+                //                 }
+                //                 if (transitionA.data < transitionB.data) {
+                //                     return 1;
+                //                 }
+                //                 return 0;
+                //             }
+                //         ));
+                //     }
+                // } catch (error) {
+                //     alert("Erro ao carregar movimentações");
+                //     console.log(error);
+                // }
             }
 
             loadTransitions();

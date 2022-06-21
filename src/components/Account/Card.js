@@ -2,23 +2,31 @@ import { } from "bootstrap";
 import { Card } from "react-bootstrap";
 import './style.css'
 import { MdAccountBalance } from "react-icons/md";
-import supabase from "../../services/Api";
+import api from "../../services/Api";
 
 const AccountCard = (props) => {
 
     const removeItem = (item) => {
         async function remove() {
-            try {
-                const { error } = await supabase
-                    .from('contas')
-                    .delete()
-                    .eq('id', props.id)
-                if (error) {
-                    throw error
-                }
-            } catch (error) {
-                alert("Erro ao excluir")
-            }
+            
+            api.delete(`creditCard/${props.id}`)
+            .then((response) => {
+                console.log("response: " + response.status);
+                console.log("data: " + response.data);
+                
+            })
+            
+            // try {
+            //     const { error } = await api
+            //         .from('contas')
+            //         .delete()
+            //         .eq('id', props.id)
+            //     if (error) {
+            //         throw error
+            //     }
+            // } catch (error) {
+            //     alert("Erro ao excluir")
+            // }
         }
         props.onRemove();
         remove();
